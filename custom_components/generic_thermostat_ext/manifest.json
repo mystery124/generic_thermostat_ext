@@ -1,0 +1,12 @@
+{
+  "domain": "generic_thermostat_ext",
+  "name": "Generic Thermostat extentsion",
+  "documentation": "https://github.com/mystery124/generic_thermostat_ext.git",
+  "dependencies": [
+    "sensor",
+    "switch"
+  ],
+  "codeowners": [],
+  "requirements": [],
+  "version": "0.1"
+}
