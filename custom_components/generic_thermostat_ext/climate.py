@@ -85,6 +85,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Required(CONF_HEATER): cv.entity_id,
         vol.Required(CONF_SENSOR): cv.entity_id,
+        vol.Optional(CONF_HEATERS_REL): cv.entity_ids,
         vol.Optional(CONF_AC_MODE): cv.boolean,
         vol.Optional(CONF_MAX_TEMP): vol.Coerce(float),
         vol.Optional(CONF_MIN_DUR): cv.positive_time_period,
@@ -539,7 +540,8 @@ class GenericThermostat(ClimateEntity, RestoreEntity):
         """Turn heater toggleable device on."""
         heater_ids = []
         heater_ids.append(self.heater_entity_id)
-        heater_ids.extend(self.heaters_entity_ids)
+        if self.heaters_entity_ids is not None:
+            heater_ids.extend(self.heaters_entity_ids)
         data = {ATTR_ENTITY_ID: heater_ids}
         await self.hass.services.async_call(
             HA_DOMAIN, SERVICE_TURN_ON, data, context=self._context
@@ -549,7 +551,8 @@ class GenericThermostat(ClimateEntity, RestoreEntity):
         """Turn heater toggleable device off."""
         heater_ids = []
         heater_ids.append(self.heater_entity_id)
-        heater_ids.extend(self.heaters_entity_ids)
+        if self.heaters_entity_ids is not None:
+            heater_ids.extend(self.heaters_entity_ids)
         data = {ATTR_ENTITY_ID: heater_ids}
         await self.hass.services.async_call(
             HA_DOMAIN, SERVICE_TURN_OFF, data, context=self._context
