@@ -1,5 +1,3 @@
 [
-  "https://raw.githubusercontent.com/custom-components/climate.programmable_thermostat/master/custom_components/programmable_thermostat/__init__.py",
-  "https://raw.githubusercontent.com/custom-components/climate.programmable_thermostat/master/custom_components/programmable_thermostat/const.py",
-  "https://raw.githubusercontent.com/custom-components/climate.programmable_thermostat/master/custom_components/programmable_thermostat/reproduce_state"
+  "https://raw.githubusercontent.com/mystery124/generic_thermostat_ext/main/custom_components/generic_thermostat_ext/__init__.py"
 ]
